@@ -6,7 +6,6 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import AppBar from 'material-ui/AppBar';
 import Tab from 'material-ui/Tabs';
 import TabsControlled from './Tabs';
-import ListItems from './ListItems';
 import './App.css';
 
 const styles = {

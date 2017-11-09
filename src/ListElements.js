@@ -4,7 +4,7 @@ import ActionInfo from 'material-ui/svg-icons/action/info';
 import FileFolder from 'material-ui/svg-icons/file/folder';
 import Avatar from 'material-ui/Avatar';
 
-export default class ListItems extends React.Component {
+export default class ListElements extends React.Component {
     constructor (props) {
         super(props);
     }

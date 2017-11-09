@@ -1,6 +1,9 @@
 import React from 'react';
+import async from 'async';
 import {Tab,Tabs} from 'material-ui/Tabs';
 import ListItems from './ListItems';
+
+const { fetchJson } = require("./api");
 
 const styles = {
   headline: {
@@ -10,14 +13,20 @@ const styles = {
     fontWeight: 400,
   },
 };
+
+
+
 const fetchData = (tab) => {
-   let data_tab1 = ["hello","hello","hello","hello"];
-   let data_tab2 = ["tab2","tab2","tab3","tab4"];
-   if(tab==='a'){
-     return data_tab1;
+
+   if(tab==='dataElementGroups'){
+     let data = [];
+     return fetchJson({ type: tab, fields: "displayName, displayShortName,url, id" });
+
    }
-   else if (tab==='b') {
-     return data_tab2;
+   else if (tab==='indicatorGroups') {
+     let data = [];
+
+     return fetchJson({ type: tab, fields: "displayName, displayShortName, url, id" });
    }
    else {
      return [];
@@ -32,17 +41,20 @@ export default class TabsControlled extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tab: 'a',
-      data: fetchData('a')
+      tab: 'dataElementGroups',
+      data: []
     };
 
   }
 
+  componentDidMount () {
+    fetchData(this.state.tab).then((data) => this.setState({
+      data: data[this.state.tab]
+    }));
+  }
+
   handleChange = (tab) => {
-    this.setState({
-      tab: tab,
-      data:fetchData(tab)
-    });
+    fetchData(tab).then((data) => this.setState({tab, data: data[tab]}));
   };
 
 
@@ -51,17 +63,17 @@ export default class TabsControlled extends React.Component {
       <Tabs
         value={this.state.tab}
         onChange={this.handleChange} >
-        <Tab label="Data Elements"value="a">
+        <Tab label="Data Elements"value="dataElementGroups">
         <div>
-          <h2 style={styles.headline}>List of Published Data Elements</h2>
+          <h2 style={styles.headline}>List of Published Data Elements Groups</h2>
           <div>
             <ListItems data={this.state.data} />
           </div>
         </div>
       </Tab>
-      <Tab label="Indicators" value="b">
+      <Tab label="Indicators" value="indicatorGroups">
         <div>
-          <h2 style={styles.headline}>List of Indicators Published Indicators</h2>
+          <h2 style={styles.headline}>List Published Indicators Groups</h2>
           <div>
           <ListItems data={this.state.data} />
           </div>
