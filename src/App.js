@@ -7,8 +7,9 @@ import AppBar from 'material-ui/AppBar';
 import Tab from 'material-ui/Tabs';
 import TabsControlled from './Tabs';
 import ListItems from './ListItems';
+import TableData from './TableData';
 import './App.css';
-
+import ReactTable from 'react-table';
 const styles = {
   headline: {
     fontSize: 24,
@@ -27,8 +28,6 @@ const muiTheme = getMuiTheme({
   },
 });
 
-
-
 class App extends Component {
   render() {
     return (
@@ -40,7 +39,10 @@ class App extends Component {
           <TabsControlled>
 
            </TabsControlled>
+           <TableData>
+           </TableData>
       </MuiThemeProvider>
+
       );
   }
 }

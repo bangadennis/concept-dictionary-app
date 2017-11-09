@@ -3,10 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "d2": "^28.3.0",
     "material-ui": "^0.19.4",
+    "material-ui-datatables": "^0.18.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "react-table": "^6.7.4",
+    "reactable": "^0.14.1"
   },
   "scripts": {
     "start": "react-scripts start",
