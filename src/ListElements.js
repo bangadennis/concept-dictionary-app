@@ -20,7 +20,7 @@ export default class ListElements extends React.Component {
         console.info('listitems', this.props)
         return (
             <List>
-                { this.props.data.map(this.li) }
+
             </List>
         );
     }

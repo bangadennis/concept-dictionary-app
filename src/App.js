@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import logo from './logo-test.png';
 import {cyan700} from 'material-ui/styles/colors';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -6,6 +7,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import AppBar from 'material-ui/AppBar';
 import Tab from 'material-ui/Tabs';
 import TabsControlled from './Tabs';
+import dataElementGroup from './dataElementGroup';
+import indicatorGroup from './indicatorGroup';
 import './App.css';
 
 const styles = {
@@ -36,9 +39,14 @@ class App extends Component {
           title="Concept Dictionary"
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           />
-          <TabsControlled>
+          <Router>
+          <Switch>
+          <Route exact path="/" component={TabsControlled} />
+          <Route path="/dataElementGroups/:id" component={dataElementGroup} />
+            <Route path="/indicatorElementGroups/:id" component={indicatorGroup} />
+          </Switch>
+          </Router>
 
-           </TabsControlled>
       </MuiThemeProvider>
       );
   }

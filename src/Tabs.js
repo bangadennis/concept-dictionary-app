@@ -49,12 +49,13 @@ export default class TabsControlled extends React.Component {
 
   componentDidMount () {
     fetchData(this.state.tab).then((data) => this.setState({
+      tab: this.state.tab,
       data: data[this.state.tab]
     }));
   }
 
   handleChange = (tab) => {
-    fetchData(tab).then((data) => this.setState({tab, data: data[tab]}));
+    fetchData(tab).then((data) => this.setState({tab:tab, data: data[tab]}));
   };
 
 
@@ -63,11 +64,11 @@ export default class TabsControlled extends React.Component {
       <Tabs
         value={this.state.tab}
         onChange={this.handleChange} >
-        <Tab label="Data Elements"value="dataElementGroups">
+        <Tab label="Data Elements" value="dataElementGroups">
         <div>
           <h2 style={styles.headline}>List of Published Data Elements Groups</h2>
           <div>
-            <ListItems data={this.state.data} />
+            <ListItems data={this.state.data} tab={this.state.tab} />
           </div>
         </div>
       </Tab>
@@ -75,7 +76,7 @@ export default class TabsControlled extends React.Component {
         <div>
           <h2 style={styles.headline}>List Published Indicators Groups</h2>
           <div>
-          <ListItems data={this.state.data} />
+          <ListItems data={this.state.data} tab={this.state.tab} />
           </div>
         </div>
       </Tab>
