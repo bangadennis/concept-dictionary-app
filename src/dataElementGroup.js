@@ -3,7 +3,12 @@ import {Tab,Tabs} from 'material-ui/Tabs';
 import {List, ListItem} from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import Divider from 'material-ui/Divider';
-import ListElements from './ListElements';
+import ActionInfo from 'material-ui/svg-icons/action/info';
+import FileFolder from 'material-ui/svg-icons/file/folder';
+import Avatar from 'material-ui/Avatar';
+import FlatButton from 'material-ui/FlatButton';
+import AssignmentIcon from 'material-ui-icons/Assignment';
+import {green500} from 'material-ui/styles/colors';
 
 const { fetchJson } = require("./api");
 
@@ -14,6 +19,11 @@ const styles = {
     marginBottom: 12,
     fontWeight: 400,
   },
+  greenAvatar: {
+   margin: 10,
+   color: '#fff',
+   backgroundColor: green500
+ },
 };
 
 
@@ -28,36 +38,50 @@ export default class dataElementGroup extends React.Component {
 
   constructor(props) {
     super(props);
+    let id = this.props.match.params.id;
+    let params = "dataElementGroups/"+id;
     this.state = {
+      type:"dataElements",
       data: []
     };
 
   }
 
   componentDidMount () {
-    console.log(this.props);
     let id = this.props.match.params.id;
     let params = "dataElementGroups/"+id;
     console.log(params);
     fetchData(params).then((data) => this.setState({
-      data: data
+      type: data["displayName"],
+      data: data['dataElements']
     }));
   }
 
-  // handleChange = (tab) => {
-  //   fetchData(tab).then((data) => this.setState({tab, data: data[tab]}));
-  // };
+  li (dataItem) {
+      return (
+          <ListItem leftAvatar={<Avatar icon={<AssignmentIcon />} />}
+          rightIcon={<ActionInfo />} key={dataItem.id} primaryText={dataItem.displayName}
+          secondaryText={"Domain Type: "+dataItem.domainType+"; Aggregation: "+dataItem.aggregationType+
+          "; ValueType: "+dataItem.valueType+"; Code: "+dataItem.code}></ListItem>
+      );
+  }
 
 
   render() {
-    console.log(this.state.data);
+
+    if (this.state.data) {
     return (
       <div>
-        <h2 style={styles.headline}>{this.state.data.displayName}</h2>
+        <h2 style={styles.headline}>DataElement Group{this.state.type}</h2>
+          <FlatButton label="Back" secondary={true} href="/" />
         <div>
-        <ListElements data={this.state.data.dataElements}  />
+        <Divider />
+        <List>
+            { this.state.data.map(this.li) }
+        </List>
         </div>
       </div>
     );
   }
+}
 }

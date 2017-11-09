@@ -1,10 +1,12 @@
 {
   "name": "concept-dictionary-app",
   "version": "0.1.0",
+  "description":"Conept Dictionary",
   "private": true,
   "dependencies": {
     "async": "^2.6.0",
     "material-ui": "^0.19.4",
+    "material-ui-icons": "^1.0.0-beta.17",
     "node-fetch": "^1.7.3",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
@@ -14,7 +16,16 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild":"d2-manifest package.json build/manifest.webapp",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "manifest.webapp": {
+    "icons":{
+      "48":"src/icon.png"
+    },
+    "developer": {
+      "name": "Sourabh and Dennis "
+    }
   }
 }

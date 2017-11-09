@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import logo from './logo-test.png';
 import {cyan700} from 'material-ui/styles/colors';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -18,6 +18,10 @@ const styles = {
     marginBottom: 12,
     fontWeight: 400,
   },
+};
+
+const style = {
+  marginLeft: 20,
 };
 
 const muiTheme = getMuiTheme({
@@ -43,7 +47,7 @@ class App extends Component {
           <Switch>
           <Route exact path="/" component={TabsControlled} />
           <Route path="/dataElementGroups/:id" component={dataElementGroup} />
-            <Route path="/indicatorElementGroups/:id" component={indicatorGroup} />
+            <Route path="/indicatorGroups/:id" component={indicatorGroup} />
           </Switch>
           </Router>
 

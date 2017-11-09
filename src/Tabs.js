@@ -1,6 +1,7 @@
 import React from 'react';
-import async from 'async';
 import {Tab,Tabs} from 'material-ui/Tabs';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
 import ListItems from './ListItems';
 
 const { fetchJson } = require("./api");
@@ -12,6 +13,11 @@ const styles = {
     marginBottom: 12,
     fontWeight: 400,
   },
+};
+
+const style = {
+  marginRight: 20,
+  float:'right'
 };
 
 
@@ -61,6 +67,7 @@ export default class TabsControlled extends React.Component {
 
   render() {
     return (
+      <div>
       <Tabs
         value={this.state.tab}
         onChange={this.handleChange} >
@@ -81,6 +88,10 @@ export default class TabsControlled extends React.Component {
         </div>
       </Tab>
       </Tabs>
+      <FloatingActionButton mini={true} secondary={true} style={style}>
+        <ContentAdd />
+      </FloatingActionButton>
+      </div>
     );
   }
 }
