@@ -1,7 +1,7 @@
 {
   "name": "concept-dictionary-app",
   "version": "0.1.0",
-  "description":"Conept Dictionary",
+  "description":"Concept Dictionary",
   "private": true,
   "dependencies": {
     "async": "^2.6.0",
@@ -22,7 +22,7 @@
   },
   "manifest.webapp": {
     "icons":{
-      "48":"src/icon.png"
+      "48":"logo.png"
     },
     "developer": {
       "name": "Sourabh and Dennis "

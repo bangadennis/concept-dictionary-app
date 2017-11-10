@@ -39,18 +39,19 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme} >
-        <AppBar
-          title="Concept Dictionary"
-          iconClassNameRight="muidocs-icon-navigation-expand-more"
-          />
-          <Router>
-          <Switch>
-          <Route exact path="/" component={TabsControlled} />
-          <Route path="/dataElementGroups/:id" component={dataElementGroup} />
-            <Route path="/indicatorGroups/:id" component={indicatorGroup} />
-          </Switch>
-          </Router>
-
+      <div>
+          <AppBar
+            title="Concept Dictionary"
+            iconClassNameRight="muidocs-icon-navigation-expand-more"
+            />
+            <Router>
+            <Switch>
+            <Route exact path="/" component={TabsControlled} />
+            <Route path="/dataElementGroups/:id" component={dataElementGroup} />
+              <Route path="/indicatorGroups/:id" component={indicatorGroup} />
+            </Switch>
+            </Router>
+          </div>
       </MuiThemeProvider>
       );
   }
