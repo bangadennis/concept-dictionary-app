@@ -71,8 +71,8 @@ export default class dataElementGroup extends React.Component {
     if (this.state.data) {
     return (
       <div>
-        <h2 style={styles.headline}>DataElement Group{this.state.type}</h2>
-          <FlatButton label="Back" secondary={true} style="float:right" href="/" />
+        <h2 style={styles.headline}>DataElement Group - {this.state.type}</h2>
+          <FlatButton label="Back" secondary={true}  href="/" />
         <div>
         <Divider />
         <List>

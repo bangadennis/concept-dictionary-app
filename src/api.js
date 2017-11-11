@@ -16,7 +16,7 @@ const fetchJson = async ({ type, paging = false, fields = "*" }) => {
   });
 
   try {
-    const req = await fetch(`${config.url}/api/${type}?paging=${paging}&fields=${fields}`, {
+    const req = await fetch(`${process.env.PUBLIC_URL}/api/${type}?paging=${paging}&fields=${fields}`, {
       headers
     });
 

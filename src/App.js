@@ -9,7 +9,6 @@ import Tab from 'material-ui/Tabs';
 import TabsControlled from './Tabs';
 import dataElementGroup from './dataElementGroup';
 import indicatorGroup from './indicatorGroup';
-import './App.css';
 
 const styles = {
   headline: {

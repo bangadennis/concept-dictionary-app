@@ -127,7 +127,7 @@ export default class TabsControlled extends React.Component {
       <Tabs
         value={this.state.tab}
         onChange={this.handleChange} >
-        <Tab label="Data Elements" value="dataElementGroups">
+        <Tab label="Data Element Groups" value="dataElementGroups">
         <div>
           <h2 style={styles.headline}>List of Published Data Elements Groups</h2>
           <div>
@@ -135,7 +135,7 @@ export default class TabsControlled extends React.Component {
           </div>
         </div>
       </Tab>
-      <Tab label="Indicators" value="indicatorGroups">
+      <Tab label="Indicators Groups" value="indicatorGroups">
         <div>
           <h2 style={styles.headline}>List Published Indicators Groups</h2>
           <div>
